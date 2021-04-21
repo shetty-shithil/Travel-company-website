@@ -1,0 +1,104 @@
+{% load static%}
+{% static 'images' as baseUrl%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travello template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    <title>Registration</title>
+    <style>
+        .a1{
+            background-image:url("{% static 'images/news_6.jpg' %}") ;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 1518px;
+            height: 750px;
+        }
+        form{
+            padding-top: 50px;
+            padding-right: 30px;
+            padding-bottom: 50px;
+            padding-left: 1200px;
+        }
+        .menu_logo{
+            padding-top: 20px;
+            padding-left: 25px;
+        }
+        input[type=text][name=first_name], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+          }     
+          input[type=text][name=last_name], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+          }     
+          input[type=text][name=user_name], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+          }     
+        input[type=email], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+          }
+        input[type=password], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+          }  
+          input[type=submit] {
+            background-color: rgb(76, 127, 175);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+          }         
+    </style>
+</head>
+
+<body>
+    <div class="a1">
+        <div class="menu_logo"><a href="home" style="color: aliceblue;" >Travello</a></div> 
+        <form action="register" method="post">
+            {% csrf_token%}
+            <input type="text" name="first_name" placeholder="First Name"><br>
+            <input type="text" name="last_name" placeholder="Last Name"><br>
+            <input type="text" name="user_name" placeholder="User Name"><br>
+            <input type="email" name="email" placeholder="E-mail"><br>
+            <input type="password" name="password1" placeholder="Password"><br>
+            <input type="password" name="password2" placeholder="Confirm Password"><br>
+            <input type="Submit">
+        </form>
+        <div>
+            {% for message in messages %}
+            <h3 style="color: black;">{{message}}</h3>
+    
+            {%endfor%}
+        </div>
+    </div>
+</body>
+</html>
